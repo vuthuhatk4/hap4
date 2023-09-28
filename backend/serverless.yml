@@ -1,7 +1,8 @@
 # TODO: Change the name of the org 
 org: vuthuhatk4
-app: serverless-todo-app
-service: serverless-todo-app
+app: myprj4-serverless-todo-app
+service: myprj4-serverless-todo-app
+frameworkVersion: '3'
 
 plugins:
   - serverless-webpack
@@ -10,7 +11,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   lambdaHashingVersion: '20201221'
 
   stage: ${opt:stage, 'dev'}
@@ -23,10 +24,10 @@ provider:
   # Use these variables in the functions and resouorces section below. For example, 
   # ${self:provider.environment.ATTACHMENT_S3_BUCKET}
   environment:
-    PROJECT_NAME: TODO-APP
+    PROJECT_NAME: myprj4-TODO-APP
     TODOS_TABLE: Todos-${self:provider.stage}
     TODOS_CREATED_AT_INDEX: CreatedAtIndex
-    ATTACHMENT_S3_BUCKET: vuthuhatk4-serverless-c4-todo-images-${self:provider.stage}
+    ATTACHMENT_S3_BUCKET: myprj4-serverless-c4-todo-images-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
 
   logs:

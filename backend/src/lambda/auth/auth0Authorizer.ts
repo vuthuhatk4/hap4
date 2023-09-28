@@ -56,17 +56,17 @@ export const handler = async (
 
 async function verifyToken(authHeader: string): Promise<JwtPayload> {
   const token = getToken(authHeader)
-  // logger.info(`token: ${token}`);
+  logger.info(`token: ${token}`);
   const jwt: Jwt = decode(token, { complete: true }) as Jwt
-  // logger.info(`jwt: ${jwt}`);
+  logger.info(`jwt: ${jwt}`);
 
   const res = await Axios.get(jwksUrl);
-  // logger.info(`res: ${res}`);
+  logger.info(`res: ${res}`);
   const keys = res.data.keys;
-  // logger.info(`keys: ${keys}`);
-  // logger.info(`jwt.header.kid: ${jwt.header.kid}`);
+  logger.info(`keys: ${keys}`);
+   logger.info(`jwt.header.kid: ${jwt.header.kid}`);
   const signingKey = keys.find(key => key.kid === jwt.header.kid);
-  // logger.info(`signingKey: ${signingKey}`);
+  logger.info(`signingKey: ${signingKey}`);
 
   if (!signingKey) {
     throw new Error(`Unable to find a signing key that matches '${jwt.header.kid}'`);

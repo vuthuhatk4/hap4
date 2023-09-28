@@ -146,12 +146,12 @@ The `client` folder contains a web application that can use the API that should 
 This frontend should work with your serverless application once it is developed, you don't need to make any changes to the code. The only file that you need to edit is the `config.ts` file in the `client` folder. This file configures your client application just as it was done in the course and contains an API endpoint and Auth0 configuration:
 
 ```ts
-const apiId = '...' API Gateway id
+const apiId = 'e50f0t44q6' API Gateway id
 export const apiEndpoint = `https://${apiId}.execute-api.us-east-1.amazonaws.com/dev`
 
 export const authConfig = {
-  domain: '...',    // Domain from Auth0
-  clientId: '...',  // Client id from an Auth0 application
+  domain: 'dev-h72ydfr71scohpq6.us.auth0.com',    // Domain from Auth0
+  clientId: 'MTATtrLNii5bkpxb0641aLdYXX3nZ2zd',  // Client id from an Auth0 application
   callbackUrl: 'http://localhost:3000/callback'
 }
 ```

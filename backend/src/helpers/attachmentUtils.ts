@@ -18,7 +18,7 @@ export class AttachmentUtils {
   ) {}
 
   getSignedUrl(todoId: string): string {
-    logger.info(`attachmentUtils - getSignedUrl!!!`);
+    logger.info(`getSignedUrl`);
     return this.s3.getSignedUrl('putObject', {
       Bucket: this.bucketName,
       Key: todoId,
@@ -27,7 +27,7 @@ export class AttachmentUtils {
   }
 
   generateS3AttachmentUrl(todoId: string) {
-    logger.info(`attachmentUtils - generateS3AttachmentUrl!!!`);
+    logger.info(`generateS3AttachmentUrl`);
     return `https://${this.bucketName}.s3.amazonaws.com/${todoId}`;
   }
 }
